@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
@@ -8,13 +8,17 @@ function App() {
     const games = await fetch("http://localhost:3000/api/game", {
       method: "get",
       headers: new Headers({
-        "Authorization": `Bearer apiKeyHere`
+        "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExZDczNmQyLTAxN2YtNDM3MC1iOTI0LTRhYzE1NjdkZWZlNSIsInVzZXJuYW1lIjoiam9oYW4iLCJpYXQiOjE3MjU5OTE0MjN9.GkLope26l3q2FnH-GkeYEV3hvXZq0Bu4hSkCVCpfdQs`
       })
     });
 
     const result = await games.json();
     setBoardGames(result.data)
   }
+
+  useEffect(() => {
+    loadBoardGames();
+  }, [])
 
   return (
     <>
