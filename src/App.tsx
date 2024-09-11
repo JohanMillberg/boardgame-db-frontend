@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import { Game } from './types/game';
 
 function App() {
-  const [boardgames, setBoardGames] = useState([])
+  const [boardgames, setBoardGames] = useState<Game[]>([])
 
   const loadBoardGames = async () => {
     const games = await fetch("http://localhost:3000/api/game", {
@@ -13,7 +14,9 @@ function App() {
     });
 
     const result = await games.json();
-    setBoardGames(result.data)
+    setBoardGames(result.data.map((game: Game) => {
+      return { title: game.title, imageUrl: game.imageUrl }
+    }))
   }
 
   useEffect(() => {
@@ -25,7 +28,7 @@ function App() {
       <h1>Boardgame DB</h1>
       <button onClick={loadBoardGames} ></button>
       <div className="card">
-        {boardgames.map((game: { title: string }) => {
+        {boardgames.map((game: Game) => {
           return (
             <h1>{game.title}</h1>
           )
