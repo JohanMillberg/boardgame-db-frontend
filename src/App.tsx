@@ -9,7 +9,7 @@ function App() {
     const games = await fetch("http://localhost:3000/api/game", {
       method: "get",
       headers: new Headers({
-        "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExZDczNmQyLTAxN2YtNDM3MC1iOTI0LTRhYzE1NjdkZWZlNSIsInVzZXJuYW1lIjoiam9oYW4iLCJpYXQiOjE3MjU5OTE0MjN9.GkLope26l3q2FnH-GkeYEV3hvXZq0Bu4hSkCVCpfdQs`
+        "Authorization": `Bearer `
       })
     });
 
