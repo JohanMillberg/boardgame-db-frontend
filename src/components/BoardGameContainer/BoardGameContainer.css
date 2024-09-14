@@ -1,0 +1,12 @@
+.boardgame-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1rem;
+    border: 2px solid red;
+}
+
+.boardgame-container:first-child {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    display: block;
+}
