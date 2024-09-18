@@ -1,13 +1,8 @@
 import { Game } from "../types/game";
+import { api } from './api';
 
 export const fetchBoardGames = async (): Promise<{ data: Game[] }> => {
-    const games = await fetch("http://localhost:3000/api/game", {
-        method: "get",
-        headers: new Headers({
-            "Authorization": `Bearer `
-        })
-    });
-
+    const games = await api.get("api/game");
     const result = games.json();
     return result;
 }
