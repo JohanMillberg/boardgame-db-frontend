@@ -1,4 +1,5 @@
 import { Game } from "./game"
+import { User } from "./user"
 
 export type Review = {
     id: string,
